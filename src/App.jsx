@@ -25,6 +25,9 @@ function App() {
   }, [puzzle]);
 
   const handleGuess = (letter) => {
+    if (guessedLetters.includes(letter)) {
+      alert("You already guessed that letter!")
+    }
     setGuessedLetters([...guessedLetters, letter]);
   };
 
@@ -46,7 +49,7 @@ function App() {
       </div>
       <div>
       <form
-              onClick={(e) => {
+              onSubmit={(e) => {
                 e.preventDefault();
                 handleGuess(inputValue);
               }}
